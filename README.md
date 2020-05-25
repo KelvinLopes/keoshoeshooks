@@ -10,6 +10,12 @@
   Nesse app, você pode acessar os detalhes dos produtos, adiconar no carinho, mudar a quantidade dos produtos e excluir items do
   carrinho.
  </p>
+ 
+ ## O que há de novo ?
+ 
+ <p>
+  Nessa versão o web app usa os react-hooks deixando as classes, dessa forma o código fica bem menos verboso, mais limpo,      porém com os mesmos recursos do projeto anterior.
+ </p>
 
 
 <p align="center"> 
@@ -28,6 +34,7 @@
 * React Icons
 * Toastify
 * Reactotron
+* React Hooks
 
 ### Dev dependences 🤝  🤜🤛
 * Eslint 
