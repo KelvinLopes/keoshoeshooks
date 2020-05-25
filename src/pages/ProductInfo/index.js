@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
 import { formatPrice } from '../../util/format';
 import { MdArrowBack } from 'react-icons/md';
@@ -6,48 +6,32 @@ import { Link } from 'react-router-dom';
 
 import { ProductList, DescriptionProduct } from './styles';
 
-export default class ProductInfo extends Component{
+export default function ProductInfo(props) {
 
-  state = {
-    productInfo: [],
-    products: {},
-    id: this.props.match.params.id
-  }
 
-  async componentDidMount() {
+  const [ productInfo, setProductInfo ] = useState([]);
 
-    const { id } = this.state;
+    useEffect(() =>  {
 
-    const products = localStorage.getItem('products');
+      async function showProducts () {
 
-    if(products) {
-      this.setState({ products: JSON.parse(products) });
+       const id = props.match.params.id;
+
+        const response = await api.get(`products/${id}`);
+
+        if(response ) {
+
+          setProductInfo({
+                image: response.data.image,
+                title: response.data.title,
+                description: response.data.description,
+                priceFormatted: formatPrice(response.data.price)
+        });
+     }
     }
-
-    const response = await api.get(`products/${id}`);
-
-    if(response ) {
-
-      const products = response.data;
-      this.setState({products})
-
-      this.setState({
-
-        productInfo: {
-            image: products.image,
-            title: products.title,
-            description: products.description,
-            priceFormatted: formatPrice(products.price)
-        }
-
-      });
-    }
-
-  }
-
-  render(){
-
-    const { productInfo } = this.state;
+    showProducts();
+    // eslint-disable-next-line
+  }, []);
 
     return (
       <ProductList>
@@ -72,5 +56,4 @@ export default class ProductInfo extends Component{
             </li>
       </ProductList>
     );
-  }
 }
