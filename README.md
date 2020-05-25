@@ -14,7 +14,7 @@
  ## O que há de novo ?
  
  <p>
-  Nessa versão o web app usa os react-hooks deixando as classes, dessa forma o código fica bem menos verboso, mais limpo,      porém com os mesmos recursos do projeto anterior.
+  Nessa versão o web app usa os react-hooks deixando as classes, dessa forma o código fica bem menos verboso, mais limpo,      porém com os mesmos recursos do projeto anterior. Abrange também toda a estrutura do Redux utilizada aqui.
  </p>
 
 
