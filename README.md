@@ -50,3 +50,5 @@
 
 * No npm, acesse o documento: https://docs.npmjs.com/cli-commands/update.html
 
+* Use o comando interno da aplicação yarn server, para que os produtos sejam renderizados em tela.
+
